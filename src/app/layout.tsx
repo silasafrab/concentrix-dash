@@ -9,6 +9,7 @@ import { Footer } from "@/components/base/Footer";
 import { AppProvider } from "@/contexts/AppContext";
 import { Toaster } from "@/components/ui/toaster";
 import { UserProvider } from "@/contexts/UserContext";
+import { ArrowsUpbeat } from "@/components/primitives/ArrowsUpbeat";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
             >
               <Header />
               {children}
+              <ArrowsUpbeat />
               <Toaster />
               <Footer />
             </ThemeProvider>

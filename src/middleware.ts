@@ -5,13 +5,16 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
   const userToken = req.cookies.get("githubUser");
 
-  if (url.pathname === "/" && userToken) {
-    url.pathname = "/dashboard";
-    return NextResponse.redirect(url);
+  if (!userToken) {
+    if (url.pathname !== "/") {
+      url.pathname = "/";
+      return NextResponse.redirect(url);
+    }
+    return NextResponse.next();
   }
 
-  if (url.pathname === "/dashboard" && !userToken) {
-    url.pathname = "/";
+  if (url.pathname === "/" && userToken) {
+    url.pathname = "/dashboard";
     return NextResponse.redirect(url);
   }
 
@@ -19,5 +22,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/dashboard"],
+  matcher: ["/", "/dashboard", "/dashboard/:path*"],
 };

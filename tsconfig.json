@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/reducers/sum.test.js"
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ],
   "exclude": ["node_modules"]
 }

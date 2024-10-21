@@ -47,6 +47,7 @@ import { Typography } from "@/components/primitives/typography/typography";
 import { useRouter } from "next/navigation";
 import { toast } from "@/hooks/use-toast";
 import { ClipboardPlus } from "lucide-react";
+import MotionContainer from "@/components/primitives/MotionContainer/MotionContainer";
 
 export type Payment = {
   id: string;
@@ -263,14 +264,16 @@ export function DataTasks() {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button
-          onClick={() => push("/dashboard/add")}
-          variant={"default"}
-          className="hidden md:flex"
-        >
-          <ClipboardPlus />
-          Adicionar nova tarefa
-        </Button>
+        <MotionContainer from={{ scale: 0.8 }} to={{ scale: 1 }} delay={0}>
+          <Button
+            onClick={() => push("/dashboard/add")}
+            variant={"default"}
+            className="hidden md:flex"
+          >
+            <ClipboardPlus />
+            Adicionar nova tarefa
+          </Button>
+        </MotionContainer>
       </div>
       <div className="rounded-md border">
         <Table>

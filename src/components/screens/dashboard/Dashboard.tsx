@@ -9,7 +9,7 @@ export const Dashboard = () => {
   const TaskCtx = useApp();
 
   return (
-    <div className="container h-full my-16">
+    <div className="container  my-16">
       {TaskCtx?.task.length === 0 ? (
         <NoEmpty />
       ) : (
