@@ -32,13 +32,13 @@ export const Status: React.FC<StatusProps> = ({ status }) => {
   return (
     <div
       className={cn(
-        "flex items-center justify-center px-3 py-1 rounded-full gap-2 w-full",
+        "flex items-center justify-center px-4 py-1 rounded-full gap-1 w-fit relative",
         statusClasses[status].bg
       )}
     >
       <div
         className={cn(
-          "rounded-full h-[4px] min-w-[4px]",
+          "rounded-full h-1 w-1 animate-ping absolute top-1 right-1 hidden",
           statusClasses[status].circle
         )}
       />

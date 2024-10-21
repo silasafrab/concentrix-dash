@@ -8,8 +8,10 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { ClipboardPlus } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const NoEmpty = () => {
+  const { push } = useRouter();
   return (
     <Card className="flex flex-col gap-10">
       <CardHeader>
@@ -24,7 +26,7 @@ export const NoEmpty = () => {
         <NoEmptyIllustration />
       </CardContent>
       <CardFooter className="justify-center">
-        <Button>
+        <Button onClick={() => push("/dashboard/add")}>
           <ClipboardPlus />
           Adicionar Tarefa
         </Button>

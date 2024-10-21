@@ -6,6 +6,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Header } from "@/components/base/Header";
 import { Footer } from "@/components/base/Footer";
+import { AppProvider } from "@/contexts/AppContext";
+import { Toaster } from "@/components/ui/toaster";
+import { UserProvider } from "@/contexts/UserContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -22,16 +25,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} flex flex-col h-screen`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <AppProvider>
+          <UserProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
+              {children}
+              <Toaster />
+              <Footer />
+            </ThemeProvider>
+          </UserProvider>
+        </AppProvider>
       </body>
     </html>
   );
