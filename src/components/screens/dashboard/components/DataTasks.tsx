@@ -170,7 +170,7 @@ export function DataTasks() {
                 onClick={() => {
                   navigator.clipboard.writeText(task.id);
                   toast({
-                    description: "ID copiado para sua área de transferência ",
+                    description: "ID copiado para sua área de transferência",
                   });
                 }}
               >
